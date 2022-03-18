@@ -127,11 +127,31 @@
                 DecreaseLengthOfArray();
             }
 
-            for (int i=0; i<rangeLength, i++)
+            for (int i=0; i<rangeLength; i++)
             {
                 MoveLeftSideFromAnyPart(index);
             }
         }
+
+        public int FindIndexByFirstElement(int num)
+        {
+            if(Length == 0)
+            {
+                throw new Exception("You have nothing to find");
+            }
+            int neededIndex = -1;
+            for (int i = 0; i < Length; i++)
+            {
+                if (_array[i] == num)
+                {
+                    neededIndex = i;
+                    break;
+                }
+            }
+            return neededIndex;
+        }
+
+
 
         private void MoveRightSide(int index=0)
         {
