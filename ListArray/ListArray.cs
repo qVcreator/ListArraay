@@ -6,6 +6,24 @@
 
         private int[] _array;
 
+        public ListArray()
+        {
+            _array = new int[5];
+            Length = 2;
+        }
+
+        public ListArray(int Length)
+        {
+            _array = new int[(int)(Length * 1.5)];
+            this.Length = Length;
+        }
+
+        public ListArray(int[] array)
+        {
+            _array = array;
+            Length = _array.Length;
+        }
+
         public void AddLast(int value)
         {
             if(Length >= _array.Length)
