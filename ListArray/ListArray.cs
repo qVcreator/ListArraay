@@ -151,7 +151,87 @@
             return neededIndex;
         }
 
+        public void ChangeElementByindex(int index, int value)
+        {
+            if (Length == 0)
+            {
+                throw new Exception("You have nothing to change");
+            }
+            if (Length < index)
+            {
+                throw new IndexOutOfRangeException("Length have to be greater than index");
+            }
 
+            _array[index] = value;
+        }
+
+        public int FindMax()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("You have nothing to find");
+            }
+            int max = _array[0];
+            for (int i = 1; i < Length; i++)
+            {
+                if (_array[i] > max)
+                {
+                    max = _array[i];
+                }
+            }
+            return max;
+        }
+
+        public int FindMin()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("You have nothing to find");
+            }
+            int min = _array[0];
+            for (int i = 1; i < Length; i++)
+            {
+                if (_array[i] < min)
+                {
+                    min = _array[i];
+                }
+            }
+            return min;
+        }
+
+        public int FindIndexOfMax()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("You have nothing to find");
+            }
+            int maxIndex = 0;
+            for (int i = 1; i < Length; i++)
+            {
+                if (_array[i] > _array[maxIndex])
+                {
+                    maxIndex = i;
+                }
+            }
+            return maxIndex;
+        }
+
+        public int FindIndexOfMin()
+        {
+            if (Length == 0)
+            {
+                throw new Exception("You have nothing to find");
+            }
+            int minIndex = 0;
+            for (int i = 1; i < Length; i++)
+            {
+                if (_array[i] < _array[minIndex])
+                {
+                    minIndex = i;
+                }
+            }
+            return minIndex;
+        }
 
         private void MoveRightSide(int index=0)
         {
