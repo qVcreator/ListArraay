@@ -82,6 +82,56 @@
             MoveLeftSideFromAnyPart(num);
         }
 
+        public void DeleteRangeOfLast(int rangeLength)
+        {
+            if (Length < rangeLength)
+            {
+                throw new Exception("List have no so many elements you want to delete");
+            }
+            if (Length <= _array.Length / 2)
+            {
+                DecreaseLengthOfArray();
+            }
+
+            for (int i = 0; i < rangeLength; i++)
+            {
+                Length--;
+            }
+        }
+
+        public void DeleteRangeOfFirst(int rangeLength)
+        {
+            if (Length < rangeLength)
+            {
+                throw new Exception("List have no so many elements you want to delete");
+            }
+            if (Length <= _array.Length / 2)
+            {
+                DecreaseLengthOfArray();
+            }
+
+            for (int i=0; i < rangeLength; i++)
+            {
+                MoveLeftSide();
+            }
+        }
+
+        public void DeleteRangeByIndex(int index, int rangeLength)
+        {
+            if (Length < 1)
+            {
+                throw new Exception("List have nothing to delete");
+            }
+            if (Length <= _array.Length / 2)
+            {
+                DecreaseLengthOfArray();
+            }
+
+            for (int i=0; i<rangeLength, i++)
+            {
+                MoveLeftSideFromAnyPart(index);
+            }
+        }
 
         private void MoveRightSide(int index=0)
         {
