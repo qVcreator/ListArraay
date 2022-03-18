@@ -247,6 +247,41 @@
             return minIndex;
         }
 
+        public void SortLessBigger()
+        {
+            for (int i = 0; i < Length - 1; i++)
+            {
+                for (int j = Length - 1; j > 0; j--)
+                {
+                    if (_array[j] < _array[j - 1])
+                    {
+                        SwapNums(ref _array[j], ref _array[j - 1]);
+                    }
+                }
+            }
+        }
+
+        public void SortBiggerLess()
+        {
+            int[] tmpArr = new int[Length];
+
+            for (int i = 0; i < Length; i++)
+            {
+                int count = Length;
+                for (int j = 0; j < Length; j++)
+                {
+                    if (_array[i] > _array[j])
+                    {
+                        count--;
+
+                    }
+                }
+                tmpArr[count - 1] = _array[i];
+            }
+
+            _array = tmpArr;
+        }
+
         private void MoveRightSide(int index=0)
         {
             int[] newArr = new int[Length+1];
@@ -304,6 +339,13 @@
                 newArr[i] = _array[i];
             }
             _array = newArr;
+        }
+
+        private static void SwapNums(ref int a, ref int b)
+        {
+            int swap = a;
+            a = b;
+            b = swap;
         }
     }
 }
