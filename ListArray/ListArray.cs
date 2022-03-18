@@ -282,6 +282,49 @@
             _array = tmpArr;
         }
 
+        public int DeleteFirstFound(int value)
+        {
+            if (Length == 0)
+            {
+                throw new Exception("You have nothing to delete");
+            }
+
+            int index = -1;
+
+            for (int i = 0; i < Length; i++)
+            {
+                if (_array[i] == value)
+                {
+                    index = i;
+                    MoveLeftSideFromAnyPart(i);
+                    break;
+                }
+            }
+
+            return index;
+
+        }
+
+        public int DeleteAllFoundElements(int value)
+        {
+            if (Length == 0)
+            {
+                throw new Exception("You have nothing to delete");
+            }
+
+            int count = 0;
+
+            for (int i=0; i<Length; i++)
+            {
+                if (_array[i] == value)
+                {
+                    count++;
+                    MoveLeftSideFromAnyPart();
+                }
+            }
+            return count;
+        }
+
         private void MoveRightSide(int index=0)
         {
             int[] newArr = new int[Length+1];
