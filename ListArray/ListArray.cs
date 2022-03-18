@@ -75,7 +75,7 @@
             Length--;
         }
 
-        public void DeletFirst()
+        public void DeleteFirst()
         {
             if (_array.Length < 1)
             {
@@ -87,6 +87,7 @@
             }
 
             MoveLeftSide();
+            Length--;
         }
 
         public void DeleteByIndex(int num)
@@ -101,6 +102,17 @@
             }
 
             MoveLeftSideFromAnyPart(num);
+            Length--;
+        }
+
+        public int GetValue(int index)
+        {
+            if (index > Length || index < 0)
+            {
+                throw new IndexOutOfRangeException("IndexOutOfRange");
+            }
+
+            return _array[index];
         }
 
         public void DeleteRangeOfLast(int rangeLength)
@@ -116,7 +128,7 @@
 
             for (int i = 0; i < rangeLength; i++)
             {
-                Length--;
+                DeleteLast();
             }
         }
 
@@ -134,6 +146,7 @@
             for (int i=0; i < rangeLength; i++)
             {
                 MoveLeftSide();
+                Length--;
             }
         }
 
@@ -151,6 +164,7 @@
             for (int i=0; i<rangeLength; i++)
             {
                 MoveLeftSideFromAnyPart(index);
+                Length--;
             }
         }
 
@@ -322,6 +336,8 @@
                 }
             }
 
+            Length--;
+
             return index;
 
         }
@@ -335,23 +351,29 @@
 
             int count = 0;
 
-            for (int i=0; i<Length; i++)
+            int i = 0;
+            while (i<Length-count)
             {
-                if (_array[i] == value)
+                i++;
+                if (_array[i-1] == value)
                 {
                     count++;
-                    MoveLeftSideFromAnyPart();
+                    MoveLeftSideFromAnyPart(i-1);
+                    i = 0;
                 }
             }
+
+            Length -= count;
+
             return count;
         }
 
         //Delete this later
         public void Show()
         {
-            foreach (int item in _array)
+            for (int i =0; i<Length; i++)
             {
-                Console.Write($"{item} ");
+                Console.Write($"{_array[i]} ");
             }
             Console.WriteLine();
         }
@@ -372,13 +394,12 @@
 
         private void MoveLeftSideFromAnyPart(int index = 0)
         {
-            Length--;
-            int[] newArr = new int[Length];
+            int[] newArr = new int[_array.Length-1];
             for (int i = 0; i < index; i++)
             {
                 newArr[i] = _array[i];
             }
-            for (int i = index; i < Length; i++)
+            for (int i = index; i < _array.Length-1; i++)
             {
                 newArr[i] = _array[i+1];
             }
@@ -387,9 +408,8 @@
 
         private void MoveLeftSide()
         {
-            Length--;
-            int[] newArr = new int[Length];
-            for (int i = 0; i < Length; i++)
+            int[] newArr = new int[Length-1];
+            for (int i = 0; i < Length-1; i++)
             {
                 newArr[i] = _array[i + 1];
             }
