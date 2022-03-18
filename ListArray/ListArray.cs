@@ -165,6 +165,20 @@
             _array[index] = value;
         }
 
+        public void Reverse()
+        {
+            int[] tmpArr = new int[Length];
+            int j = 0;
+
+            for (int i = Length - 1; i >= 0; i--)
+            {
+                tmpArr[j] = _array[i];
+                j++;
+            }
+
+            _array = tmpArr;
+        }
+
         public int FindMax()
         {
             if (Length == 0)
