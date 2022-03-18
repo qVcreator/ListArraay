@@ -45,18 +45,21 @@
             MoveRightSide();
 
             _array[0] = value;
+            Length++;
         }
 
-        public void AddByIndex(int num, int value)
+        public void AddByIndex(int index, int value)
         {
             if (Length + 1 >= _array.Length)
             {
                 IncreaseLengthOfArray();
             }
 
-            MoveRightSide(num);
+            MoveRightSide(index);
 
-            _array[num] = _array[value];
+            _array[index] = value;
+
+            Length++;
         }
 
         public void DeleteLast()
@@ -343,9 +346,23 @@
             return count;
         }
 
+        //Delete this later
+        public void Show()
+        {
+            foreach (int item in _array)
+            {
+                Console.Write($"{item} ");
+            }
+            Console.WriteLine();
+        }
+
         private void MoveRightSide(int index=0)
         {
             int[] newArr = new int[Length+1];
+            for (int i = 0; i < index; i++)
+            {
+                newArr[i] = _array[i];
+            }
             for (int i = index; i < Length; i++)
             {
                 newArr[i+1] = _array[i];
