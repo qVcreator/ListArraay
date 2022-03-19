@@ -156,6 +156,10 @@
             {
                 throw new Exception("List have nothing to delete");
             }
+            if ((index+rangeLength) > Length)
+            {
+                throw new ArgumentOutOfRangeException("rangeLength");
+            }
             if (Length <= _array.Length / 2)
             {
                 DecreaseLengthOfArray();
