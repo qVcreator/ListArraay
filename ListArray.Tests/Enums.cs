@@ -6,8 +6,26 @@ using System.Threading.Tasks;
 
 namespace ListArray.Tests
 {
-    public class Enums
+    public enum Enums
     {
-
+        baseList,
+        AddLast,
+        AddFirst,
+        AddByIndex,
+        DeleteLast,
+        DeleteFirst,
+        DeleteByIndex,
+        DeleteRangeOfLast,
+        DeleteRangeOfFirst,
+        DeleteRangeByIndex,
+        ChangeElementByindex,
+        Reverse,
+        SortLessBigger,
+        SortBiggerLess,
+        DeleteFirstFound,
+        DeleteAllFoundElements,
+        AppendList,
+        AddListToBegin,
+        AddListByIndex
     }
 }
