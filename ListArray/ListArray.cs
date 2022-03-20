@@ -372,6 +372,48 @@
             return count;
         }
 
+        public void AppendList(ListArray list)
+        {
+            if (list == null)
+            {
+                throw new ArgumentNullException("list");
+            }
+            for (int i = 0; i < list.Length; i++)
+            {
+                AddLast(list.GetValue(i));
+            }    
+        }
+
+        public void AddListToBegin(ListArray list)
+        {
+            if (list == null)
+            {
+                throw new ArgumentNullException("list");
+            }
+            for (int i = list.Length-1; i >= 0; i--)
+            {
+                AddFirst(list.GetValue(i));
+            }
+        }
+
+        public void AddListByIndex(int index, ListArray list)
+        {
+            if (index < 0 || index > Length)
+            {
+                throw new IndexOutOfRangeException("index");
+            }
+            if (list == null)
+            {
+                throw new ArgumentNullException("list");
+            }
+
+            for (int i = list.Length-1; i >= 0; i--)
+            {
+                AddByIndex(index, list.GetValue(i));
+            }   
+
+        }
+
         //Delete this later
         public void Show()
         {
