@@ -34,6 +34,12 @@ namespace ListArray.Test
                 case ListEnums.AddFirst:
                     return new ListArray(new int[7] { 7, 1, 2, 3, 4, 5, 6 });
                     break;
+                case ListEnums.AddFirst2:
+                    return new ListArray(new int[7] { -2, 1, 2, 3, 4, 5, 6 });
+                    break;
+                case ListEnums.AddFirst3:
+                    return new ListArray(new int[7] { 0, 1, 2, 3, 4, 5, 6 });
+                    break;
                 case ListEnums.AddByIndex:
                     return new ListArray(new int[7] { 1, 2, 7, 3, 4, 5, 6 });
                     break;

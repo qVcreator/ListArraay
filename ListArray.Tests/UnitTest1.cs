@@ -17,5 +17,19 @@ namespace ListArray.Test
             Assert.AreEqual(expected.GetValue(i), actual.GetValue(i));
             }
         }
+
+        [TestCase(ListEnums.AddFirst, 7)]
+        [TestCase(ListEnums.AddFirst2, -2)]
+        [TestCase(ListEnums.AddFirst3, 0)]
+        public void AddFirstTest(ListEnums expectedType, int addNum)
+        {
+            ListArray actual = ListArrayMock.GetMock(ListEnums.baseList);
+            ListArray expected = ListArrayMock.GetMock(expectedType);
+            actual.AddFirst(addNum);
+            for (int i = 0; i < expected.Length; i++)
+            {
+                Assert.AreEqual(expected.GetValue(i), actual.GetValue(i));
+            }
+        }
     }
 }
