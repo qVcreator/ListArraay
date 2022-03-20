@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace ListArray.Tests
 {
-    public enum Enums
+    public enum ListEnums
     {
         baseList,
+        baseList2,
+        baseList3,
         AddLast,
         AddFirst,
         AddByIndex,
