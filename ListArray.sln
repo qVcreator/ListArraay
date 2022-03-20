@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListArray", "ListArray\ListArray.csproj", "{48C49465-042F-4093-94A9-28722ACE8711}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListArray", "ListArray\ListArray.csproj", "{48C49465-042F-4093-94A9-28722ACE8711}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiApp", "UiApp\UiApp.csproj", "{B7360C5C-8C81-4989-A071-9C458C2C292B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UiApp", "UiApp\UiApp.csproj", "{B7360C5C-8C81-4989-A071-9C458C2C292B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListArray.Tests", "ListArray.Tests\ListArray.Tests.csproj", "{6DE2EEAF-847C-42EE-85AB-E3B84765836D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{B7360C5C-8C81-4989-A071-9C458C2C292B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7360C5C-8C81-4989-A071-9C458C2C292B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7360C5C-8C81-4989-A071-9C458C2C292B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DE2EEAF-847C-42EE-85AB-E3B84765836D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DE2EEAF-847C-42EE-85AB-E3B84765836D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DE2EEAF-847C-42EE-85AB-E3B84765836D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DE2EEAF-847C-42EE-85AB-E3B84765836D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
