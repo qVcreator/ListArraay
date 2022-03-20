@@ -25,6 +25,12 @@ namespace ListArray.Test
                 case ListEnums.AddLast:
                     return new ListArray(new int[7] { 1, 2, 3, 4, 5, 6, 7 });
                     break;
+                case ListEnums.AddLast2:
+                    return new ListArray(new int[7] { 1, 2, 3, 4, 5, 6, -2 });
+                    break;
+                case ListEnums.AddLast3:
+                    return new ListArray(new int[7] { 1, 2, 3, 4, 5, 6, 0 });
+                    break;
                 case ListEnums.AddFirst:
                     return new ListArray(new int[7] { 7, 1, 2, 3, 4, 5, 6 });
                     break;

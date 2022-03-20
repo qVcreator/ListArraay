@@ -12,6 +12,8 @@ namespace ListArray.Test
         baseList2,
         baseList3,
         AddLast,
+        AddLast2,
+        AddLast3,
         AddFirst,
         AddByIndex,
         DeleteLast,
