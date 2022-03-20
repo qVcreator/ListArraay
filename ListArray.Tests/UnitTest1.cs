@@ -1,10 +1,19 @@
 using NUnit.Framework;
 
-namespace ListArray.Tests
+namespace ListArray.Test
 {
     public class ListArrayTests
     {
-        [TestCase]
-        public void 
+        [TestCase(ListEnums.AddLast)]
+        public void AddLastTest(ListEnums expectedType)
+        {
+            ListArray actual = ListArrayMock.GetMock(ListEnums.baseList);
+            ListArray expected = ListArrayMock.GetMock(ListEnums.AddLast);
+            actual.AddLast(7);
+            for (int i = 0; i < expected.Length; i++)
+            {
+            Assert.AreEqual(expected.GetValue(i), actual.GetValue(i));
+            }
+        }
     }
 }

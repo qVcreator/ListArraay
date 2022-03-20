@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ListArray;
 
-namespace ListArray.Tests
+namespace ListArray.Test
 {
     public static class ListArrayMock
     {

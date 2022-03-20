@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ListArray.Tests
+namespace ListArray.Test
 {
     public enum ListEnums
     {
