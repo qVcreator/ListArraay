@@ -2,17 +2,9 @@ using NUnit.Framework;
 
 namespace ListArray.Tests
 {
-    public class Tests
+    public class ListArrayTests
     {
-        [SetUp]
-        public void Setup()
-        {
-        }
-
-        [Test]
-        public void Test1()
-        {
-            Assert.Pass();
-        }
+        [TestCase]
+        public void 
     }
 }
