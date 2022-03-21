@@ -156,18 +156,18 @@
         {
             if (Length < rangeLength)
             {
-                throw new Exception("List have no so many elements you want to delete");
+                throw new IndexOutOfRangeException("rangeLength");
             }
             if (Length <= _array.Length / 2)
             {
                 DecreaseLengthOfArray();
             }
 
-            for (int i=0; i < rangeLength; i++)
+            for (int i=0; i < _array.Length-rangeLength; i++)
             {
-                MoveLeftSide();
-                Length--;
+                _array[i]=_array[i+rangeLength];
             }
+            Length-=rangeLength;
         }
 
         public void DeleteRangeByIndex(int index, int rangeLength)
