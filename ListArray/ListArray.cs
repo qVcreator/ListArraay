@@ -354,19 +354,17 @@
             }
 
             int count = 0;
-
-            int i = 0;
-            while (i<Length-count)
+            for (int i = 0; i < Length; i++)
             {
-                i++;
-                if (_array[i-1] == value)
+                if (_array[i] == value)
                 {
                     count++;
-                    MoveLeftSideFromAnyPart(i-1);
-                    i = 0;
+                }
+                else
+                {
+                    _array[i - count] = _array[i];
                 }
             }
-
             Length -= count;
 
             return count;
