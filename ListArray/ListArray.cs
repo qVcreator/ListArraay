@@ -4,6 +4,26 @@
     {
         public int Length { get;private set; }
 
+        public int this[int index]
+        {
+            get
+            {
+                if (index < 0 || index >= Length)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                return _array[index];
+            }
+            set
+            {
+                if (index < 0 || index >= Length)
+                {
+                    throw new IndexOutOfRangeException();
+                }
+                _array[index] = value;
+            }
+        }
+
         private int[] _array;
 
         public ListArray()
@@ -414,14 +434,40 @@
             AddList(list, index);
         }
 
-        //Delete this later
-        public void Show()
+        public override string ToString()
         {
-            for (int i =0; i<Length; i++)
+            string str = "";
+
+            for (int i = 0; i < Length; i++)
             {
-                Console.Write($"{_array[i]} ");
+                str += $"{_array[i]} ";
             }
-            Console.WriteLine();
+
+            return str;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj == null || !(obj is ListArray))
+            {
+                return false;
+            }
+
+            ListArray list = (ListArray)obj;
+
+            if (list.Length != this.Length)
+            {
+                return false;
+            }
+            for (int i = 0; i < this.Length; i++)
+            {
+                if (list[i] != this[i])
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         private void AddList(ListArray list, int index=0)
