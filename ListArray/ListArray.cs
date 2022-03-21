@@ -388,10 +388,12 @@
             {
                 throw new ArgumentNullException("list");
             }
-            for (int i = list.Length-1; i >= 0; i--)
+            if (Length + list.Length >= _array.Length)
             {
-                AddFirst(list.GetValue(i));
+                IncreaseLengthOfArray();
             }
+
+            AddList(list);
         }
 
         public void AddListByIndex(int index, ListArray list)
@@ -404,12 +406,12 @@
             {
                 throw new ArgumentNullException("list");
             }
-
-            for (int i = list.Length-1; i >= 0; i--)
+            if (Length + list.Length+index >= _array.Length)
             {
-                AddByIndex(index, list.GetValue(i));
-            }   
+                IncreaseLengthOfArray();
+            }
 
+            AddList(list, index);
         }
 
         //Delete this later
@@ -420,6 +422,28 @@
                 Console.Write($"{_array[i]} ");
             }
             Console.WriteLine();
+        }
+
+        private void AddList(ListArray list, int index=0)
+        {
+            int[] tmpArr = new int[_array.Length+list.Length];
+
+            for (int i = 0; i < index; i++)
+            {
+                tmpArr[i]=_array[i];
+            }
+            for (int i = list.Length+index; i < tmpArr.Length; i++)
+            {
+                tmpArr[i] = _array[i-list.Length];
+            }
+            for (int i = index; i < list.Length+index; i++)
+            {
+                tmpArr[i] = list.GetValue(i-index);
+            }
+
+            Length += list.Length;
+
+            _array = tmpArr;
         }
 
         private void MoveRightSide(int index=0)
