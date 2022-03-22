@@ -23,7 +23,7 @@ ListArray.ListArray list3 = new ListArray.ListArray(arr3);
 //list.Show();
 //Console.WriteLine("7-8-9");
 Console.WriteLine(list.ToString());
-list.DeleteRangeOfFirst(7);
+list.DeleteRangeOfFirst(2);
 Console.WriteLine(list.ToString());
 //list.DeleteRangeByIndex(2, 3);
 //list.DeleteRangeOfLast(2);
