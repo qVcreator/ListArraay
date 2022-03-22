@@ -74,7 +74,7 @@
             {
                 IncreaseLengthOfArray();
             }
-            if (index < 0 || index > Length)
+            if (index < 0 || index >= Length)
             {
                 throw new IndexOutOfRangeException("index");
             } 
@@ -101,7 +101,7 @@
 
         public void DeleteFirst()
         {
-            if (_array.Length < 1)
+            if (Length < 1)
             {
                 throw new Exception("List have nothing to delete");
             }
@@ -139,6 +139,10 @@
             {
                 throw new IndexOutOfRangeException("rangeLength");
             }
+            if (rangeLength < 0)
+            {
+                throw new ArgumentException("rangeLength");
+            }
             if (Length <= _array.Length / 2)
             {
                 DecreaseLengthOfArray();
@@ -152,6 +156,10 @@
             if (Length < rangeLength)
             {
                 throw new IndexOutOfRangeException("rangeLength");
+            }
+            if (rangeLength < 0)
+            {
+                throw new ArgumentException("rangeLength");
             }
             if (Length <= _array.Length / 2)
             {
@@ -170,6 +178,10 @@
             if ((index+rangeLength) > Length)
             {
                 throw new ArgumentOutOfRangeException("rangeLength");
+            }
+            if (rangeLength < 0)
+            {
+                throw new ArgumentException("rangeLength");
             }
             if (Length <= _array.Length / 2)
             {

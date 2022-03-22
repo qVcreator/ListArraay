@@ -1,5 +1,7 @@
 using NUnit.Framework;
 using ListArray.Tests.ListArrayTestSources;
+using ListArray.Tests.ListArrayNegativeTestSources;
+using System;
 
 namespace ListArray.Test
 {
@@ -27,14 +29,24 @@ namespace ListArray.Test
             Assert.AreEqual(expected, actuallist);
         }
 
+        [TestCaseSource(typeof(AddByIndexNegativeTestSource))]
+        public void AddByIndexTest_WhenIndexOutOfLength_ShouldThrowException(ListArray actuallist, int value, int index)
+        {
+            Assert.Throws<IndexOutOfRangeException>(() => actuallist.AddByIndex(index, value));
+        }
 
         [TestCaseSource(typeof(DeleteLastTestSource))]
-        public void DeleteLastTestt(ListArray actuallist, ListArray expected)
+        public void DeleteLastTest(ListArray actuallist, ListArray expected)
         {
             actuallist.DeleteLast();
             Assert.AreEqual(expected, actuallist);
         }
 
+        [TestCaseSource(typeof(DeleteLastNegativeTestSource))]
+        public void DeleteLastTest_WhenLengthOfListIsEquaalZero_ShouldThrowException(ListArray actuallist)
+        {
+            Assert.Throws<Exception>(() => actuallist.DeleteLast());
+        }
 
         [TestCaseSource(typeof(DeleteFirstTestSource))]
         public void DeleteFirstTest(ListArray actuallist, ListArray expected)
@@ -43,6 +55,11 @@ namespace ListArray.Test
             Assert.AreEqual(expected, actuallist);
         }
 
+        [TestCaseSource(typeof(DeleteFirstNegativeTestSource))]
+        public void DeleteFirstTest_WhenLengthOfListIsEquaalZero_ShouldThrowException(ListArray actuallist)
+        {
+            Assert.Throws<Exception>(() => actuallist.DeleteFirst());
+        }
 
         [TestCaseSource(typeof(DeleteByIndexTestSource))]
         public void DeleteByIndexTest(ListArray actuallist, ListArray expected, int index)
@@ -51,6 +68,17 @@ namespace ListArray.Test
             Assert.AreEqual(expected, actuallist);
         }
 
+        [TestCaseSource(typeof(DeleteByIndexTest_WhenLengthOfListIsEquaalZero_ShouldThrowExceptionNegativeTestSource))]
+        public void DeleteByIndexTest_WhenLengthOfListIsEquaalZero_ShouldThrowException(int index, ListArray actuallist)
+        {
+            Assert.Throws<Exception>(() => actuallist.DeleteByIndex(index));
+        }
+
+        [TestCaseSource(typeof(DeleteByIndexTest_WhenIndexOutOfLength_ShouldThrowExceptionNegativeTestSource))]
+        public void DeleteByIndexTest_WhenIndexOutOfLength_ShouldThrowException(int index, ListArray actuallist)
+        {
+            Assert.Throws<IndexOutOfRangeException>(() => actuallist.DeleteByIndex(index));
+        }
 
         [TestCaseSource(typeof(DeleteRangeOfLastTestSource))]
         public void DeleteRangeOfLastTest(ListArray actuallist, ListArray expected, int range)
@@ -59,6 +87,17 @@ namespace ListArray.Test
             Assert.AreEqual(expected, actuallist);
         }
 
+        [TestCaseSource(typeof(DeleteRangeOfLastNegativeTestSource_WhenRnageGreaterThanLength))]
+        public void DeleteRangeOfLastTest_WhenIndexOutOfLength_ShouldThrowException(int rangeLength, ListArray actuallist)
+        {
+            Assert.Throws<IndexOutOfRangeException>(() => actuallist.DeleteRangeOfLast(rangeLength));
+        }
+
+        [TestCaseSource(typeof(DeleteRangeOfLastNegativeTestSource_WhenRnageLessThanZero))]
+        public void DeleteRangeOfLastTest_WhenRnageLessThanZero_ShouldThrowException(int rangeLength, ListArray actuallist)
+        {
+            Assert.Throws<ArgumentException>(() => actuallist.DeleteRangeOfLast(rangeLength));
+        }
 
         [TestCaseSource(typeof(DeleteRangeOfFirstTestSource))]
         public void DeleteRangeOfFirstTest(ListArray actuallist, ListArray expected, int range)
@@ -67,6 +106,17 @@ namespace ListArray.Test
             Assert.AreEqual(expected, actuallist);
         }
 
+        [TestCaseSource(typeof(DeleteRangeOfFirstNegativeTestSource_WhenRnageGreaterThanLength))]
+        public void DeleteRangeOfFirstTest_WhenIndexOutOfLength_ShouldThrowException(int rangeLength, ListArray actuallist)
+        {
+            Assert.Throws<IndexOutOfRangeException>(() => actuallist.DeleteRangeOfFirst(rangeLength));
+        }
+
+        [TestCaseSource(typeof(DeleteRangeOfFirstNegativeTestSource_WhenRnageLessThanZero))]
+        public void DeleteRangeOfFirstTest_WhenRangeLessThanZero_ShouldThrowException(int rangeLength, ListArray actuallist)
+        {
+            Assert.Throws<ArgumentException>(() => actuallist.DeleteRangeOfFirst(rangeLength));
+        }
 
         [TestCaseSource(typeof(DeleteRangeByIndexTestSourcce))]
         public void DeleteRangeByIndexTest(ListArray actuallist, ListArray expected, int range, int index)
@@ -75,6 +125,23 @@ namespace ListArray.Test
             Assert.AreEqual(expected, actuallist);
         }
 
+        [TestCaseSource(typeof(DeleteRangeByIndexNegativeTestSource_WhenIndexOutOfRange))]
+        public void DeleteRangeByIndexTest_WhenIndexOutOfRange_ShouldThrowException(int index, int rangeLength, ListArray actuallist)
+        {
+            Assert.Throws<IndexOutOfRangeException>(() => actuallist.DeleteRangeByIndex(index, rangeLength));
+        }
+
+        [TestCaseSource(typeof(DeleteRangeByIndexNegativeTestSource_WhenRangeGreaterThanLength))]
+        public void DeleteRangeByIndexTest_WhenRangeGreaterThanLength_ShouldThrowException(int index, int rangeLength, ListArray actuallist)
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => actuallist.DeleteRangeByIndex(index, rangeLength));
+        }
+
+        [TestCaseSource(typeof(DeleteRangeByIndexNegativeTestSource_WhenRangeLessThanZero))]
+        public void DeleteRangeByIndexTest_WhenRangeLessThanZero_ShouldThrowException(int index, int rangeLength, ListArray actuallist)
+        {
+            Assert.Throws<ArgumentException>(() => actuallist.DeleteRangeByIndex(index, rangeLength));
+        }
 
         [TestCaseSource(typeof(FindIndexByFirstElementTestSource))]
         public void FindIndexByFirstElementTest(ListArray list, int expected, int val)
@@ -90,6 +157,17 @@ namespace ListArray.Test
             Assert.AreEqual(expected, actualList);
         }
 
+        [TestCaseSource(typeof(ChangeElementByindexNegativeTestSource_WhenLengthIsEqualsZero))]
+        public void ChangeElementByindexTest_WhenLengthIsEqualsZero_ShouldThrowException(int index, int value, ListArray actuallist)
+        {
+            Assert.Throws<Exception>(() => actuallist.ChangeElementByindex(index, value));
+        }
+
+        [TestCaseSource(typeof(ChangeElementByindexNegativeTestSource_WhenIndexOutOfLength))]
+        public void ChangeElementByindexTest_WhenIndexOutOfLength_ShouldThrowException(int index, int value, ListArray actuallist)
+        {
+            Assert.Throws<IndexOutOfRangeException>(() => actuallist.ChangeElementByindex(index, value));
+        }
 
         [TestCaseSource(typeof(ReverseTestSource))]
         public void ReverseTest(ListArray actualList, ListArray expected)
@@ -106,12 +184,23 @@ namespace ListArray.Test
             Assert.AreEqual(expected, actual);
         }
 
+        [TestCaseSource(typeof(FindMinNegativeTestSource_WhenLengthIsEqualsZero))]
+        public void FindMaxTest_WhenLengthIsEqualsZero(ListArray actuallist)
+        {
+            Assert.Throws<Exception>(() => actuallist.FindMax());
+        }
 
         [TestCaseSource(typeof(FindMinTestSource))]
         public void FindMinTest(ListArray actualList, int expected)
         {
             int actual = actualList.FindMin();
             Assert.AreEqual(expected, actual);
+        }
+
+        [TestCaseSource(typeof(FindMaxNegativeTestSource_WhenLengthIsEqualsZero))]
+        public void FindMinTest_WhenLengthIsEqualsZero(ListArray actuallist)
+        {
+            Assert.Throws<Exception>(() => actuallist.FindMin());
         }
 
         [TestCaseSource(typeof(FindIndexOfMaxTestSource ))]
@@ -121,12 +210,23 @@ namespace ListArray.Test
             Assert.AreEqual(expected, actual);
         }
 
+        [TestCaseSource(typeof(FindIndexOfMaxNegativeTestSource_WhenLengthIsEqualsZero))]
+        public void FindIndexOfMaxTest_WhenLengthIsEqualsZero(ListArray actuallist)
+        {
+            Assert.Throws<Exception>(() => actuallist.FindIndexOfMax());
+        }
 
         [TestCaseSource(typeof(FindIndexOfMinTestSource))]
         public void FindIndexOfMinTest(ListArray actualList, int expected)
         {
             int actual = actualList.FindIndexOfMin();
             Assert.AreEqual(expected, actual);
+        }
+
+        [TestCaseSource(typeof(FindIndexOfMinNegativeTestSource_WhenLengthIsEqualsZero))]
+        public void FindIndexOfMinTest_WhenLengthIsEqualsZero(ListArray actuallist)
+        {
+            Assert.Throws<Exception>(() => actuallist.FindIndexOfMin());
         }
 
 
@@ -154,6 +254,11 @@ namespace ListArray.Test
             Assert.AreEqual(expectedIndex, actualIndex);
         }
 
+        [TestCaseSource(typeof(DeleteFirstFoundNegativeTest_WhenLengthIsEqualsZero))]
+        public void DeleteFirstFoundTest_WhenLengthIsEqualsZero(int value, ListArray actuallist)
+        {
+            Assert.Throws<Exception>(() => actuallist.DeleteFirstFound(value));
+        }
 
         [TestCaseSource(typeof(DeleteAllFoundElementsTesSource))]
         public void DeleteAllFoundElementsTest(int value, ListArray actualList, ListArray expected, int actualNumber)
@@ -163,6 +268,11 @@ namespace ListArray.Test
             Assert.AreEqual(expectedNumber, actualNumber);
         }
 
+        [TestCaseSource(typeof(DeleteAllFoundElementsNegativeTest_WhenLengthIsEqualsZero))]
+        public void DeleteAllFoundElementsTest_WhenLengthIsEqualsZero(int value, ListArray actuallist)
+        {
+            Assert.Throws<Exception>(() => actuallist.DeleteFirstFound(value));
+        }
 
         [TestCaseSource(typeof(AppendListTestSource))]
         public void AppendListTest(ListArray list, ListArray actualList, ListArray expected)
@@ -171,6 +281,7 @@ namespace ListArray.Test
             Assert.AreEqual(expected, actualList);
             
         }
+
 
         [TestCaseSource(typeof(AddListToBeginTestSource))]
         public void AddListToBeginTest(ListArray list, ListArray actualList, ListArray expected)
