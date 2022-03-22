@@ -74,6 +74,10 @@
             {
                 IncreaseLengthOfArray();
             }
+            if (index < 0 || index > Length)
+            {
+                throw new IndexOutOfRangeException("index");
+            } 
 
             MoveRightSide(index);
 
@@ -110,18 +114,22 @@
             Length--;
         }
 
-        public void DeleteByIndex(int num)
+        public void DeleteByIndex(int index)
         {
             if (Length < 1)
             {
                 throw new Exception("List have nothing to delete");
+            }
+            if (index < 0 || index > Length)
+            {
+                throw new IndexOutOfRangeException("index");
             }
             if (Length <= _array.Length / 2)
             {
                 DecreaseLengthOfArray();
             }
 
-            MoveLeftSideFromAnyPart(num);
+            MoveLeftSideFromAnyPart(index);
             Length--;
         }
 
@@ -139,7 +147,7 @@
         {
             if (Length < rangeLength)
             {
-                throw new Exception("List have no so many elements you want to delete");
+                throw new IndexOutOfRangeException("rangeLength");
             }
             if (Length <= _array.Length / 2)
             {
@@ -163,18 +171,14 @@
                 DecreaseLengthOfArray();
             }
 
-            for (int i=0; i < _array.Length-rangeLength; i++)
-            {
-                _array[i]=_array[i+rangeLength];
-            }
-            Length-=rangeLength;
+            StepLeftOptimized(rangeLength);
         }
 
         public void DeleteRangeByIndex(int index, int rangeLength)
         {
-            if (Length < 1)
+            if (index < 0||index>_array.Length)
             {
-                throw new Exception("List have nothing to delete");
+                throw new IndexOutOfRangeException("index");
             }
             if ((index+rangeLength) > Length)
             {
@@ -185,29 +189,19 @@
                 DecreaseLengthOfArray();
             }
 
-            for (int i=0; i<rangeLength; i++)
-            {
-                MoveLeftSideFromAnyPart(index);
-                Length--;
-            }
+            StepLeftOptimized(rangeLength,index);
         }
 
-        public int FindIndexByFirstElement(int num)
+        public int FindIndexByFirstElement(int value)
         {
             if(Length == 0)
             {
                 throw new Exception("You have nothing to find");
             }
-            int neededIndex = -1;
-            for (int i = 0; i < Length; i++)
-            {
-                if (_array[i] == num)
-                {
-                    neededIndex = i;
-                    break;
-                }
-            }
-            return neededIndex;
+            
+            int index = FindVal(value);
+
+            return index;
         }
 
         public void ChangeElementByindex(int index, int value)
@@ -470,6 +464,16 @@
             return true;
         }
 
+        private void StepLeftOptimized(int rangeLength, int index=0)
+        {
+            int newLength = _array.Length - rangeLength;
+            for (int i = index; i < newLength; i++)
+            {
+                _array[i] = _array[i + rangeLength];
+            }
+            Length -= rangeLength;
+        }
+
         private void AddList(ListArray list, int index=0)
         {
             int[] tmpArr = new int[_array.Length+list.Length];
@@ -551,6 +555,20 @@
                 newArr[i] = _array[i];
             }
             _array = newArr;
+        }
+
+        private int FindVal(int value)
+        {
+            int neededIndex = -1;
+            for (int i = 0; i < Length; i++)
+            {
+                if (_array[i] == value)
+                {
+                    neededIndex = i;
+                    break;
+                }
+            }
+            return neededIndex;
         }
 
         private static void SwapNums(ref int a, ref int b)
