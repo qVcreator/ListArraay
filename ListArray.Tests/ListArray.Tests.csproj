@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Новая папка\" />
+    <Folder Include="ListArrayTestSources\" />
   </ItemGroup>
 
 </Project>
