@@ -41,7 +41,7 @@
         public ListArray(int[] array)
         {
             _array = array;
-            Length = _array.Length;
+            Length = (int)(_array.Length*1.5)+1;
         }
 
         public void AddLast(int value)

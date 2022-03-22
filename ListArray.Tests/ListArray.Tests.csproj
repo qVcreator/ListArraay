@@ -18,8 +18,4 @@
     <ProjectReference Include="..\ListArray\ListArray.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="ListArrayTestSources\" />
-  </ItemGroup>
-
 </Project>

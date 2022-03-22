@@ -1,35 +1,17 @@
 using NUnit.Framework;
+using System.Collections;
+using ListArray.Tests.ListArrayTestSources;
 
 namespace ListArray.Test
 {
     public class ListArrayTests
     {
-        [TestCase(ListEnums.AddLast, 7)]
-        [TestCase(ListEnums.AddLast2, -2)]
-        [TestCase(ListEnums.AddLast3, 0)]
-        public void AddLastTest(ListEnums expectedType, int addNum)
+        [TestCaseSource(typeof(DeleteLastTestSource))]
+        
+        public void AddLastTest(ListArray actuallist, ListArray expected, int num)
         {
-            ListArray actual = ListArrayMock.GetMock(ListEnums.baseList);
-            ListArray expected = ListArrayMock.GetMock(expectedType);
-            actual.AddLast(addNum);
-            for (int i = 0; i < expected.Length; i++)
-            {
-            Assert.AreEqual(expected.GetValue(i), actual.GetValue(i));
-            }
-        }
-
-        [TestCase(ListEnums.AddFirst, 7)]
-        [TestCase(ListEnums.AddFirst2, -2)]
-        [TestCase(ListEnums.AddFirst3, 0)]
-        public void AddFirstTest(ListEnums expectedType, int addNum)
-        {
-            ListArray actual = ListArrayMock.GetMock(ListEnums.baseList);
-            ListArray expected = ListArrayMock.GetMock(expectedType);
-            actual.AddFirst(addNum);
-            for (int i = 0; i < expected.Length; i++)
-            {
-                Assert.AreEqual(expected.GetValue(i), actual.GetValue(i));
-            }
+            actuallist.AddLast(num);
+            Assert.AreEqual(expected, actuallist);
         }
     }
 }
