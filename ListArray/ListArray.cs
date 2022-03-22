@@ -133,16 +133,6 @@
             Length--;
         }
 
-        public int GetValue(int index)
-        {
-            if (index > Length || index < 0)
-            {
-                throw new IndexOutOfRangeException("IndexOutOfRange");
-            }
-
-            return _array[index];
-        }
-
         public void DeleteRangeOfLast(int rangeLength)
         {
             if (Length < rangeLength)
@@ -154,10 +144,7 @@
                 DecreaseLengthOfArray();
             }
 
-            for (int i = 0; i < rangeLength; i++)
-            {
-                DeleteLast();
-            }
+            Length -= rangeLength;
         }
 
         public void DeleteRangeOfFirst(int rangeLength)
@@ -392,7 +379,7 @@
             }
             for (int i = 0; i < list.Length; i++)
             {
-                AddLast(list.GetValue(i));
+                AddLast(list[i]);
             }    
         }
 
@@ -488,7 +475,7 @@
             }
             for (int i = index; i < list.Length+index; i++)
             {
-                tmpArr[i] = list.GetValue(i-index);
+                tmpArr[i] = list[i-index];
             }
 
             Length += list.Length;
@@ -536,7 +523,7 @@
 
         private void IncreaseLengthOfArray()
         {
-            int newLength = (int)(_array.Length * 1.5);
+            int newLength = (int)(_array.Length * 1.5)+1;
             int[] newArr = new int[newLength];
             Copy(newArr);       
         }

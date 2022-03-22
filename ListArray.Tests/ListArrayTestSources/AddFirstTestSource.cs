@@ -6,29 +6,29 @@ using System.Threading.Tasks;
 
 namespace ListArray.Tests.ListArrayTestSources
 {
-    internal class DeleteFirstTestSource : IEnumerable
+    internal class AddFirstTestSource : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {
-            ListArray expected = new ListArray(new int[] { 7,1, 2, 3, 4, 5, 6 });
+            ListArray expected = new ListArray(new int[] { 7, 1, 2, 3, 4, 5, 6 });
             ListArray actuallist = new ListArray(new int[] { 1, 2, 3, 4, 5, 6 });
-            int num = 7;
+            int value = 7;
 
-            yield return new object[] { actuallist, expected, num };
+            yield return new object[] { actuallist, expected, value };
 
 
             expected = new ListArray(new int[] { 7 });
             actuallist = new ListArray(new int[] { });
-            num = 7;
+            value = 7;
 
-            yield return new object[] { actuallist, expected, num };
+            yield return new object[] { actuallist, expected, value };
 
 
-            expected = new ListArray(new int[] { -7,1, 2, 3, 4, 5, 6 });
+            expected = new ListArray(new int[] { -7, 1, 2, 3, 4, 5, 6 });
             actuallist = new ListArray(new int[] { 1, 2, 3, 4, 5, 6 });
-            num = -7;
+            value = -7;
 
-            yield return new object[] { actuallist, expected, num };
+            yield return new object[] { actuallist, expected, value };
         }
     }
 }

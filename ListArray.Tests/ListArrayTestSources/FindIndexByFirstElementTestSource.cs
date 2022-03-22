@@ -1,32 +1,33 @@
 ﻿using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace ListArray.Tests.ListArrayTestSources
 {
-    internal class AddLastTestSource : IEnumerable
+    internal class FindIndexByFirstElementTestSource : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {
-            ListArray expected = new ListArray(new int[] { 1, 2, 3, 4, 5, 6, 7 });
+            int expected = 3;
             ListArray actuallist = new ListArray(new int[] { 1, 2, 3, 4, 5, 6 });
-            int value = 7;
+            int value = 4;
 
-            yield return new object[] { actuallist, expected, value };
+            yield return new object[] { actuallist, expected, value};
 
 
-            expected = new ListArray(new int[] { 7 });
-            actuallist = new ListArray(new int[] {});
+            expected = 0;
+            actuallist = new ListArray(new int[] { 7, 6, 2, 3, 4 });
             value = 7;
 
             yield return new object[] { actuallist, expected, value };
 
 
-            expected = new ListArray(new int[] { 1, 2, 3, 4, 5, 6, -7 });
+            expected = 5;
             actuallist = new ListArray(new int[] { 1, 2, 3, 4, 5, 6 });
-            value = -7;
+            value = 6;
 
             yield return new object[] { actuallist, expected, value };
         }
