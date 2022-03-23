@@ -282,6 +282,12 @@ namespace ListArray.Test
             
         }
 
+        [TestCaseSource(typeof(NegativeTestSource_WhenListIsNull))]
+        public void AppendListTest_WhenListIsNull(ListArray list, ListArray actuallist)
+        {
+            Assert.Throws<ArgumentNullException>(() => actuallist.AppendList(list));
+        }
+
 
         [TestCaseSource(typeof(AddListToBeginTestSource))]
         public void AddListToBeginTest(ListArray list, ListArray actualList, ListArray expected)
@@ -291,12 +297,24 @@ namespace ListArray.Test
 
         }
 
+        [TestCaseSource(typeof(NegativeTestSource_WhenListIsNull))]
+        public void AddListToBeginTest_WhenListIsNull(ListArray list, ListArray actuallist)
+        {
+            Assert.Throws<ArgumentNullException>(() => actuallist.AddListToBegin(list));
+        }
+
         [TestCaseSource(typeof(AddListByIndexTestSource))]
         public void AddListByIndexTest(int index, ListArray list, ListArray actualList, ListArray expected)
         {
             actualList.AddListByIndex(index, list);
             Assert.AreEqual(expected, actualList);
 
+        }
+
+        [TestCaseSource(typeof(AddListByIndexNegativeTestSource_WhenIndexOutOfLength))]
+        public void AddListByIndexTest_WhenListIsNull(int index, ListArray list, ListArray actuallist)
+        {
+            Assert.Throws<IndexOutOfRangeException>(() => actuallist.AddListByIndex(index, list));
         }
     }
 }
