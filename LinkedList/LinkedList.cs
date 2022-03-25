@@ -121,6 +121,13 @@
             _root.Next = GetNode(2);
         }
 
+        public void DeleteByIndex(int index)
+        {
+            Node prevNode = GetNode(index-1);
+            Node nextNode = GetNode(index+1);
+            prevNode.Next = nextNode;
+        }
+
         public override string ToString()
         {
             string str = "[ ";
