@@ -64,6 +64,22 @@
             _tail = _root;
         }
 
+        public LinkedList(int[] array)
+        {
+            _root = new Node(array[0]);
+            Node crnt = _root;
+            for (int i = 1; i < array.Length; i++)
+            {
+                crnt.Next = new Node(array[i]);
+                crnt = crnt.Next;
+                if(i == array.Length - 1)
+                {
+                    _tail = crnt;
+                }
+            }
+
+        }
+
         public void AddLast(int value)
         {
             if (_root is null)
@@ -331,6 +347,40 @@
             }
 
             return index;
+        }
+
+        public int DeleteAllFoundElements(int value)
+        {
+            Node crnt = _root;
+            int index=0;
+            int count = 0;
+            while (crnt != null)
+            {
+                if (crnt.Value == value)
+                {
+                    if (index == 0)
+                    {
+                        _root = crnt.Next;
+                        count++;
+                    }
+                    else
+                    {
+                        Node previous = GetNode(index - 1);
+                        previous.Next = crnt.Next;
+                        count++;
+                        index--;
+                    }
+                }
+                index++;
+                crnt = crnt.Next;
+            }
+
+            return count;
+        }
+
+        public void AppendList(LinkedList list)
+        {
+            _tail.Next = list._root;
         }
 
         public override string ToString()

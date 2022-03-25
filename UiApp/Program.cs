@@ -2,17 +2,33 @@
 
 LinkedList.LinkedList list = new LinkedList.LinkedList();
 
-for (int i = 0; i < 10; i++)
+//for (int i = 0; i < 5; i++)
+//{
+//    list.AddLast(i);
+//}
+//for (int i = 0; i < 5; i++)
+//{
+//    list.AddLast(5);
+//}
+for (int i = 0; i <= 10; i++)
 {
     list.AddLast(i);
 }
 
-Console.WriteLine("go");
-Console.WriteLine(list.ToString());
-Console.WriteLine(list.DeleteFirstFound(5));
-Console.WriteLine(list.ToString());
-Console.WriteLine("end");
+//Console.WriteLine("go");
+//Console.WriteLine(list.ToString());
+//Console.WriteLine(list.DeleteAllFoundElements(5));
+//Console.WriteLine(list.ToString());
+//Console.WriteLine("end");
 
+
+int[]  arr = new int[] { 2, 6, 43, 89, 34, 88 };
+LinkedList.LinkedList list2 = new LinkedList.LinkedList(arr);
+
+Console.WriteLine(list.ToString());
+Console.WriteLine(list2.ToString());
+list.AppendList(list2);
+Console.WriteLine(list.ToString());
 
 
 
