@@ -5,29 +5,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 
-namespace ListArray.Tests.ListArrayTestSources
+namespace LinkedList.Tests.ListArrayTestSources
 {
     internal class AddListToBeginTestSource : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {
-            ListArray expected = new ListArray(new int[] { 6, 5, 4, 3, 2, 1 });
-            ListArray actuallist = new ListArray(new int[] { 6, 5, 4, 3, 2, 1 });
-            ListArray addedList = new ListArray(new int[] { });
+            LinkedList expected = new LinkedList(new int[] { 6, 5, 4, 3, 2, 1 });
+            LinkedList actuallist = new LinkedList(new int[] { 6, 5, 4, 3, 2, 1 });
+            LinkedList addedList = new LinkedList(new int[] { });
 
             yield return new object[] { addedList, actuallist, expected };
 
 
-            expected = new ListArray(new int[] { 1, 2, 3 , - 77, -2, 0, -400 });
-            actuallist = new ListArray(new int[] { -77, -2, 0, -400 });
-            addedList = new ListArray(new int[] { 1, 2, 3 });
+            expected = new LinkedList(new int[] { 1, 2, 3 , - 77, -2, 0, -400 });
+            actuallist = new LinkedList(new int[] { -77, -2, 0, -400 });
+            addedList = new LinkedList(new int[] { 1, 2, 3 });
 
             yield return new object[] { addedList, actuallist, expected };
 
 
-            expected = new ListArray(new int[] { -7, -8, 1, 200, 0, 77, 2, 40, 0, 540});
-            actuallist = new ListArray(new int[] { 77, 2, 40, 0, 540 });
-            addedList = new ListArray(new int[] { -7, -8, 1, 200, 0 });
+            expected = new LinkedList(new int[] { -7, -8, 1, 200, 0, 77, 2, 40, 0, 540});
+            actuallist = new LinkedList(new int[] { 77, 2, 40, 0, 540 });
+            addedList = new LinkedList(new int[] { -7, -8, 1, 200, 0 });
 
             yield return new object[] { addedList, actuallist, expected };
         }

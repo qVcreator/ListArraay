@@ -5,28 +5,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 
-namespace ListArray.Tests.ListArrayTestSources
+namespace LinkedList.Tests.ListArrayTestSources
 {
     internal class DeleteRangeOfLastTestSource : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {
-            ListArray expected = new ListArray(new int[] { 1, 2, 3 });
-            ListArray actuallist = new ListArray(new int[] { 1, 2, 3, 4, 5, 6 });
+            LinkedList expected = new LinkedList(new int[] { 1, 2, 3 });
+            LinkedList actuallist = new LinkedList(new int[] { 1, 2, 3, 4, 5, 6 });
             int range = 3;
 
             yield return new object[] { actuallist, expected, range };
 
 
-            expected = new ListArray(new int[] { 7, 6, 2, 3, 4 });
-            actuallist = new ListArray(new int[] { 7, 6, 2, 3, 4 });
+            expected = new LinkedList(new int[] { 7, 6, 2, 3, 4 });
+            actuallist = new LinkedList(new int[] { 7, 6, 2, 3, 4 });
             range = 0;
 
             yield return new object[] { actuallist, expected, range };
 
 
-            expected = new ListArray(new int[] { });
-            actuallist = new ListArray(new int[] { 1, 2, 3, 4, 5, 6 });
+            expected = new LinkedList(new int[] { });
+            actuallist = new LinkedList(new int[] { 1, 2, 3, 4, 5, 6 });
             range = 6;
 
             yield return new object[] { actuallist, expected, range };
