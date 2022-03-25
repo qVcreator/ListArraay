@@ -141,6 +141,12 @@
             _tail = lastStayNode;
         }
 
+        public void DeleteRangeOfFirst(int range)
+        {
+            Node lastStayNode = GetNode(range);
+            _root = lastStayNode;
+        }
+
         public override string ToString()
         {
             string str = "[ ";
