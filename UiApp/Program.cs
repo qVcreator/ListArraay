@@ -9,7 +9,7 @@ for (int i = 0; i < 10; i++)
 
 Console.WriteLine("go");
 Console.WriteLine(list.ToString());
-list.AddByIndex(4,77);
+list.DeleteLast();
 Console.WriteLine(list.ToString());
 Console.WriteLine("end");
 

@@ -90,7 +90,6 @@
                 Node crnt = _root;
                 _root = new Node(value);
                 _root.Next = crnt;
-                
             }
         }
 
@@ -108,8 +107,13 @@
                 Node newNode = new Node(value);
                 previousNode.Next = newNode;
                 newNode.Next = nextNode;
-
             }
+        }
+
+        public void DeleteLast()
+        {
+            Node preLastNode = GetNode(Length-2);
+            preLastNode.Next = null;
         }
         public override string ToString()
         {
