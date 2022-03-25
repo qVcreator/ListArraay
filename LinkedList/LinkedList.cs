@@ -217,6 +217,59 @@
             return max;
         }
 
+        public int FindMin()
+        {
+            Node crnt = _root;
+            int min = crnt.Value;
+            while (crnt != null)
+            {
+                if (crnt.Value < min)
+                {
+                    min = crnt.Value;
+                }
+                crnt = crnt.Next;
+            }
+            return min;
+        }
+
+        public int FindIndexOfMax()
+        {
+            Node crnt = _root;
+            int max = crnt.Value;
+            int i = 0;
+            int index = 0;
+            while (crnt != null)
+            {
+                if (crnt.Value > max)
+                {
+                    max = crnt.Value;
+                    index = i;
+                }
+                i++;
+                crnt = crnt.Next;
+            }
+            return index;
+        }
+
+        public int FindIndexOfMin()
+        {
+            Node crnt = _root;
+            int min = crnt.Value;
+            int i = 0;
+            int index = 0;
+            while (crnt != null)
+            {
+                if (crnt.Value < min)
+                {
+                    min = crnt.Value;
+                    index = i;
+                }
+                i++;
+                crnt = crnt.Next;
+            }
+            return index;
+        }
+
         public override string ToString()
         {
             string str = "[ ";
