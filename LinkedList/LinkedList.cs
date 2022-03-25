@@ -115,6 +115,12 @@
             Node preLastNode = GetNode(Length-2);
             preLastNode.Next = null;
         }
+
+        public void DeleteFirst()
+        {
+            _root.Next = GetNode(2);
+        }
+
         public override string ToString()
         {
             string str = "[ ";
