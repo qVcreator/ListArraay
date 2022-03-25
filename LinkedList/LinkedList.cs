@@ -288,6 +288,24 @@
             }
         }
 
+        public void SortBiggerLess()
+        {
+            for (int i = 0; i < Length - 1; i++)
+            {
+                Node crnt = _root;
+                Node next = crnt.Next;
+                while (next != null)
+                {
+                    if (crnt.Value < next.Value)
+                    {
+                        SwapNodesValue(ref crnt, ref next);
+                    }
+                    crnt = crnt.Next;
+                    next = next.Next;
+                }
+            }
+        }
+
         public override string ToString()
         {
             string str = "[ ";
