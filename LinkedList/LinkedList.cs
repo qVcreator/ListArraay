@@ -51,6 +51,19 @@
             }
         }
 
+        public LinkedList()
+        {
+            _root = null;
+
+            _tail = null;
+        }
+
+        public LinkedList(int value)
+        {
+            _root = new Node(value);
+            _tail = _root;
+        }
+
         public void AddLast(int value)
         {
             if (_root is null)
@@ -63,6 +76,36 @@
                 _tail.Next = new Node(value);
                 _tail = _tail.Next;
             }
+        }
+
+        public void AddFirst(int value)
+        {
+            if (_root is null)
+            {
+                _root = new Node(value);
+                _tail = _root;
+            }
+            else
+            {
+                Node crnt = _root;
+                _root = new Node(value);
+                _root.Next = crnt;
+                
+            }
+        }
+        public override string ToString()
+        {
+            string str = "[ ";
+            Node crnt = _root;
+            while (crnt != null)
+            {
+                str += $"{crnt.Value} ";
+                crnt = crnt.Next;
+            }
+
+            str += "]";
+
+            return str;
         }
     }
 }
