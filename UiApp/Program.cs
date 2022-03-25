@@ -9,7 +9,7 @@ for (int i = 0; i < 10; i++)
 
 Console.WriteLine("go");
 Console.WriteLine(list.ToString());
-Console.WriteLine(list.FindIndexByFirstElement(9));
+list.ChangeElementByindex(9,77);
 Console.WriteLine(list.ToString());
 Console.WriteLine("end");
 
