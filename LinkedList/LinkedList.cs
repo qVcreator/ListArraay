@@ -147,6 +147,25 @@
             _root = lastStayNode;
         }
 
+        public void DeleteRangeByIndex(int index, int range)
+        {
+            Node stop = GetNode(index - 1);
+            Node keep = GetNode(index + range);
+            if (index > 0)
+            {
+                stop.Next = keep;
+            }
+            else
+            {
+                _root  = keep;
+            }            
+            
+            if (index+range  == Length)
+            {
+                _tail=stop;
+            }
+        }
+
         public override string ToString()
         {
             string str = "[ ";
