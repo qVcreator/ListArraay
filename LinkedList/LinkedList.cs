@@ -306,6 +306,33 @@
             }
         }
 
+        public int DeleteFirstFound(int value)
+        {
+            Node crnt = _root;
+            int index=0;
+            while (crnt != null)
+            {
+                if (crnt.Value == value)
+                {
+                    if (index == 0)
+                    {
+                        _root = crnt.Next;
+                        break;
+                    }
+                    else
+                    {
+                        Node previous = GetNode(index - 1);
+                        previous.Next = crnt.Next;
+                        break;
+                    }
+                }
+                index++;
+                crnt = crnt.Next;
+            }
+
+            return index;
+        }
+
         public override string ToString()
         {
             string str = "[ ";
