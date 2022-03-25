@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 
-namespace ListArray.Tests.ListArrayNegativeTestSources
+namespace LinkedList.Tests.LinkedListNegativeTestSources
 {
     internal class FindIndexOfMaxNegativeTestSource_WhenLengthIsEqualsZero : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {
-            ListArray actuallist = new ListArray(new int[] { });
+            LinkedList actuallist = new LinkedList(new int[] { });
 
             yield return new object[] { actuallist };
         }

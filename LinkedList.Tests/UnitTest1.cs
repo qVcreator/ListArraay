@@ -1,6 +1,6 @@
 using NUnit.Framework;
 using LinkedList.Tests.LinkedListTestSources;
-using LinkedList.Tests.ListArrayNegativeTestSources;
+using LinkedList.Tests.LinkedListNegativeTestSources;
 using System;
 
 namespace LinkedList.Test

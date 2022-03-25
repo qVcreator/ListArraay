@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 
-namespace ListArray.Tests.ListArrayNegativeTestSources
+namespace LinkedList.Tests.LinkedListNegativeTestSources
 {
     internal class ChangeElementByindexNegativeTestSource_WhenLengthIsEqualsZero : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {
-            ListArray actuallist = new ListArray(new int[] { });
+            LinkedList actuallist = new LinkedList(new int[] { });
             int index = 1;
             int value = 2;
 
@@ -23,13 +23,13 @@ namespace ListArray.Tests.ListArrayNegativeTestSources
     {
         public IEnumerator GetEnumerator()
         {
-            ListArray actuallist = new ListArray(new int[] { 1, 2, 3, 4, 5, 6 });
+            LinkedList actuallist = new LinkedList(new int[] { 1, 2, 3, 4, 5, 6 });
             int index = -1;
             int value = 2;
 
             yield return new object[] { index, value, actuallist };
 
-            actuallist = new ListArray(new int[] { 1, 2, 3, 4, 5, 6 });
+            actuallist = new LinkedList(new int[] { 1, 2, 3, 4, 5, 6 });
             index = 9;
             value = 2;
 

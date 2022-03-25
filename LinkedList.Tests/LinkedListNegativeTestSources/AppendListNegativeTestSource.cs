@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 
-namespace ListArray.Tests.ListArrayNegativeTestSources
+namespace LinkedList.Tests.LinkedListNegativeTestSources
 {
     internal class NegativeTestSource_WhenListIsNull : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {
-            ListArray actuallist = new ListArray(new int[] {1,2,3,4,5 });
-            ListArray addedList = null;
+            LinkedList actuallist = new LinkedList(new int[] {1,2,3,4,5 });
+            LinkedList addedList = null;
 
             yield return new object[] { addedList, actuallist };
         }

@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 
-namespace ListArray.Tests.ListArrayNegativeTestSources
+namespace LinkedList.Tests.LinkedListNegativeTestSources
 {
     internal class AddListByIndexNegativeTestSource_WhenListIsNull : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {
-            ListArray actuallist = new ListArray(new int[] { 1, 2, 3, 4, 5 });
-            ListArray addedList = null;
+            LinkedList actuallist = new LinkedList(new int[] { 1, 2, 3, 4, 5 });
+            LinkedList addedList = null;
             int index = 2;
 
             yield return new object[] { index, addedList, actuallist };
@@ -23,33 +23,33 @@ namespace ListArray.Tests.ListArrayNegativeTestSources
     {
         public IEnumerator GetEnumerator()
         {
-            ListArray actuallist = new ListArray(new int[] { 1, 2, 3, 4, 5 });
-            ListArray addedList = new ListArray(new int[] { 1, 2});
+            LinkedList actuallist = new LinkedList(new int[] { 1, 2, 3, 4, 5 });
+            LinkedList addedList = new LinkedList(new int[] { 1, 2});
             int index = -1;
 
             yield return new object[] { index, addedList, actuallist };
 
-            actuallist = new ListArray(new int[] { 1, 2, 3, 4, 5 });
-            addedList = new ListArray(new int[] { 1, 2 });
+            actuallist = new LinkedList(new int[] { 1, 2, 3, 4, 5 });
+            addedList = new LinkedList(new int[] { 1, 2 });
             index = 6;
 
             yield return new object[] { index, addedList, actuallist };
 
-            actuallist = new ListArray(new int[] { 1 });
-            addedList = new ListArray(new int[] { 1, 2 });
+            actuallist = new LinkedList(new int[] { 1 });
+            addedList = new LinkedList(new int[] { 1, 2 });
             index = 6;
 
             yield return new object[] { index, addedList, actuallist };
 
-            actuallist = new ListArray(new int[] { 1 });
-            addedList = new ListArray(new int[] { 1, 2 });
+            actuallist = new LinkedList(new int[] { 1 });
+            addedList = new LinkedList(new int[] { 1, 2 });
             index = -1;
 
             yield return new object[] { index, addedList, actuallist };
 
 
-            actuallist = new ListArray(new int[] { });
-            addedList = new ListArray(new int[] { 1, 2 });
+            actuallist = new LinkedList(new int[] { });
+            addedList = new LinkedList(new int[] { 1, 2 });
             index = -1;
 
             yield return new object[] { index, addedList, actuallist };

@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 
-namespace ListArray.Tests.ListArrayNegativeTestSources
+namespace LinkedList.Tests.LinkedListNegativeTestSources
 {
     internal class DeleteRangeOfLastNegativeTestSource_WhenRnageGreaterThanLength : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {
-            ListArray actuallist = new ListArray(new int[] { 1, 2, 3, 4, 5, 6 });
+            LinkedList actuallist = new LinkedList(new int[] { 1, 2, 3, 4, 5, 6 });
             int range = 9;
 
             yield return new object[] { range, actuallist };
@@ -23,7 +23,7 @@ namespace ListArray.Tests.ListArrayNegativeTestSources
     {
         public IEnumerator GetEnumerator()
         {
-            ListArray actuallist = new ListArray(new int[] { 1, 2, 3, 4, 5, 6 });
+            LinkedList actuallist = new LinkedList(new int[] { 1, 2, 3, 4, 5, 6 });
             int range = -2;
 
             yield return new object[] { range, actuallist };
