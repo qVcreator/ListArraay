@@ -209,9 +209,9 @@
             {
                 throw new Exception("You have nothing to change");
             }
-            if (Length < index)
+            if (index < 0 || index >= Length)
             {
-                throw new IndexOutOfRangeException("Length have to be greater than index");
+                throw new IndexOutOfRangeException();
             }
 
             _array[index] = value;

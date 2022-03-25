@@ -22,14 +22,16 @@ for (int i = 0; i <= 10; i++)
 //Console.WriteLine("end");
 
 
-int[]  arr = new int[] { 2, 6, 43, 89, 34, 88 };
-LinkedList.LinkedList list2 = new LinkedList.LinkedList(arr);
+//int[]  arr = new int[] { 2, 6, 43, 89, 34, 88 };
+//LinkedList.LinkedList list2 = new LinkedList.LinkedList(arr);
 
-Console.WriteLine(list.ToString());
-Console.WriteLine(list2.ToString());
-list.AddListByIndex(2,list2);
-Console.WriteLine(list.ToString());
+Console.WriteLine(list.ToString()); 
+//Console.WriteLine(list2.ToString());
+//list.AddListByIndex(2,list2);
+//Console.WriteLine(list.ToString());
 
+list.DeleteRangeOfLast(9);
+Console.WriteLine(list.ToString()); 
 
 
 
