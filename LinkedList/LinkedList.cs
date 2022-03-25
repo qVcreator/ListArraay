@@ -384,6 +384,11 @@
             _tail = list._tail;
         }
 
+        public void AddListToBegin(LinkedList list)
+        {
+            list._tail.Next = _root; 
+        }
+
         public override string ToString()
         {
             string str = "[ ";
