@@ -132,6 +132,7 @@
         {
             Node lastStayNode = GetNode(Length - 1 - range);
             lastStayNode.Next = null;
+            _tail = lastStayNode;
         }
 
         public override string ToString()
