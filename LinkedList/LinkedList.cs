@@ -166,6 +166,29 @@
             }
         }
 
+        public int FindIndexByFirstElement(int value)
+        {
+            int index = -1;
+            Node crnt = _root;
+            for (int i = 0;crnt != null; i++)
+            {
+                if (crnt.Value == value) 
+                {
+                    index = i;
+                    break;
+                }
+                crnt = crnt.Next;
+            }
+            return index;
+        }
+
+        public void ChangeElementByindex(int index, int value)
+        {
+            Node changeableNode = GetNode(index);
+            changeableNode.Value = value;
+
+        }
+
         public override string ToString()
         {
             string str = "[ ";
