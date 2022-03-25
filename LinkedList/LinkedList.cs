@@ -381,6 +381,7 @@
         public void AppendList(LinkedList list)
         {
             _tail.Next = list._root;
+            _tail = list._tail;
         }
 
         public override string ToString()
