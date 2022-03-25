@@ -127,6 +127,10 @@
             Node prevNode = GetNode(index-1);
             Node nextNode = GetNode(index+1);
             prevNode.Next = nextNode;
+            if (index == Length - 1)
+            {
+                _tail = prevNode;
+            }
             
         }
 
