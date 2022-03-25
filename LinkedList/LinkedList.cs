@@ -114,6 +114,7 @@
         {
             Node preLastNode = GetNode(Length-2);
             preLastNode.Next = null;
+            _tail = preLastNode;
         }
 
         public void DeleteFirst()
@@ -126,6 +127,7 @@
             Node prevNode = GetNode(index-1);
             Node nextNode = GetNode(index+1);
             prevNode.Next = nextNode;
+            
         }
 
         public void DeleteRangeOfLast(int range)
