@@ -525,6 +525,34 @@
             return str;
         }
 
+        public override bool Equals(object? obj)
+        {
+            if (obj == null || !(obj is LinkedList))
+            {
+                return false;
+            }
+
+            LinkedList list = (LinkedList)obj;
+
+            if (list.Length != this.Length)
+            {
+                return false;
+            }
+            Node crnt = _root;
+            Node crnt2 = list._root;
+            while(crnt != null)
+            {
+                if (crnt.Value != crnt2.Value)
+                {
+                    return false;
+                }
+                crnt = crnt.Next;
+                crnt2 = crnt2.Next;
+            }
+
+            return true;
+        }
+
         private Node GetNode(int index)
         {
             Node crnt = _root;
