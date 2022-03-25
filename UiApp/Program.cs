@@ -9,7 +9,7 @@ for (int i = 0; i < 10; i++)
 
 Console.WriteLine("go");
 Console.WriteLine(list.ToString());
-list.Reverse();
+Console.WriteLine(list.FindMax());
 Console.WriteLine(list.ToString());
 Console.WriteLine("end");
 

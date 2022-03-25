@@ -202,6 +202,21 @@
             }
         }
 
+        public int FindMax()
+        {
+            Node crnt = _root;
+            int max = crnt.Value;
+            while (crnt != null)
+            {
+                if(crnt.Value > max)
+                {
+                    max = crnt.Value;
+                }
+                crnt = crnt.Next;
+            }
+            return max;
+        }
+
         public override string ToString()
         {
             string str = "[ ";
