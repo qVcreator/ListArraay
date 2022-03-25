@@ -128,6 +128,12 @@
             prevNode.Next = nextNode;
         }
 
+        public void DeleteRangeOfLast(int range)
+        {
+            Node lastStayNode = GetNode(Length - 1 - range);
+            lastStayNode.Next = null;
+        }
+
         public override string ToString()
         {
             string str = "[ ";
