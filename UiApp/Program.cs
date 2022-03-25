@@ -2,14 +2,14 @@
 
 LinkedList.LinkedList list = new LinkedList.LinkedList();
 
-for (int i = 0; i < 10; i++)
+for (int i = 10; i > 0; i--)
 {
     list.AddLast(i);
 }
 
 Console.WriteLine("go");
 Console.WriteLine(list.ToString());
-Console.WriteLine(list.FindMax());
+list.SortLessBigger();
 Console.WriteLine(list.ToString());
 Console.WriteLine("end");
 
