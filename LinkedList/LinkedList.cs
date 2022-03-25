@@ -93,6 +93,24 @@
                 
             }
         }
+
+        public void AddByIndex(int index, int value)
+        {
+            if (_root is null)
+            {
+                _root = new Node(value);
+                _tail = _root;
+            }
+            else
+            {
+                Node previousNode = GetNode(index - 1);
+                Node nextNode = GetNode(index);
+                Node newNode = new Node(value);
+                previousNode.Next = newNode;
+                newNode.Next = nextNode;
+
+            }
+        }
         public override string ToString()
         {
             string str = "[ ";
@@ -106,6 +124,17 @@
             str += "]";
 
             return str;
+        }
+
+        private Node GetNode(int index)
+        {
+            Node crnt = _root;
+            for (int i = 1; i <= index; i++)
+            {
+                crnt = crnt.Next;
+            }
+
+            return crnt;
         }
     }
 }
