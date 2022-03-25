@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 
-namespace LinkedList.Tests.ListArrayTestSources
+namespace LinkedList.Tests.LinkedListTestSources
 {
     internal class DeleteRangeByIndexTestSourcce : IEnumerable
     {

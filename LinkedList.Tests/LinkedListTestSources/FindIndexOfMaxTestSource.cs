@@ -5,26 +5,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 
-namespace LinkedList.Tests.ListArrayTestSources
+namespace LinkedList.Tests.LinkedListTestSources
 {
-    internal class ReverseTestSource : IEnumerable
+    internal class FindIndexOfMaxTestSource : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {
-            LinkedList expected = new LinkedList(new int[] { 6,5,4,3,2,1 });
+            int expected = 5;
             LinkedList actuallist = new LinkedList(new int[] { 1, 2, 3, 4, 5, 6 });
 
             yield return new object[] { actuallist, expected };
 
 
-            expected = new LinkedList(new int[] { -77});
-            actuallist = new LinkedList(new int[] { -77 });
+            expected = 0;
+            actuallist = new LinkedList(new int[] { 0, -2, -40, -77 });
 
             yield return new object[] { actuallist, expected };
 
 
-            expected = new LinkedList(new int[] { });
-            actuallist = new LinkedList(new int[] { });
+            expected = 2;
+            actuallist = new LinkedList(new int[] { -77, -2, 540, - 40, 0 });
 
             yield return new object[] { actuallist, expected };
         }

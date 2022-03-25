@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
 
-namespace LinkedList.Tests.ListArrayTestSources
+namespace LinkedList.Tests.LinkedListTestSources
 {
-    internal class DeleteRangeOfLastTestSource : IEnumerable
+    internal class DeleteRangeOfFirstTestSource : IEnumerable
     {
         public IEnumerator GetEnumerator()
         {
-            LinkedList expected = new LinkedList(new int[] { 1, 2, 3 });
+            LinkedList expected = new LinkedList(new int[] { 4, 5, 6 });
             LinkedList actuallist = new LinkedList(new int[] { 1, 2, 3, 4, 5, 6 });
             int range = 3;
 
