@@ -9,7 +9,7 @@ for (int i = 0; i < 10; i++)
 
 Console.WriteLine("go");
 Console.WriteLine(list.ToString());
-list.ChangeElementByindex(9,77);
+list.Reverse();
 Console.WriteLine(list.ToString());
 Console.WriteLine("end");
 

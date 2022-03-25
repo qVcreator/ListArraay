@@ -189,6 +189,19 @@
 
         }
 
+        public void Reverse()
+        {
+            Node crnt = _root;
+            Node next;
+            while (crnt.Next != null)
+            {
+                next = crnt.Next;
+                crnt.Next = next.Next;
+                next.Next = _root;
+                _root = next;
+            }
+        }
+
         public override string ToString()
         {
             string str = "[ ";
