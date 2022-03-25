@@ -27,7 +27,7 @@ LinkedList.LinkedList list2 = new LinkedList.LinkedList(arr);
 
 Console.WriteLine(list.ToString());
 Console.WriteLine(list2.ToString());
-list.AppendList(list2);
+list.AddListByIndex(2,list2);
 Console.WriteLine(list.ToString());
 
 

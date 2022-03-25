@@ -386,7 +386,28 @@
 
         public void AddListToBegin(LinkedList list)
         {
-            list._tail.Next = _root; 
+            LinkedList tmp = CreateTmp(list);
+            Node crnt = tmp._tail;
+            Node newRoot = tmp._root;
+            crnt.Next = _root;
+            _root = newRoot;
+        }
+
+        public void AddListByIndex(int index, LinkedList list)
+        {
+            if (index > 0)
+            {
+                LinkedList tmp = CreateTmp(list);
+                Node stop = GetNode(index - 1);
+                Node keep = GetNode(index);
+                stop.Next = tmp._root;
+                tmp._tail.Next = keep;
+            }
+            else
+            {
+                AddListToBegin(list);
+            }
+
         }
 
         public override string ToString()
@@ -413,6 +434,17 @@
             }
 
             return crnt;
+        }
+        private LinkedList CreateTmp(LinkedList list)
+        {
+            Node crnt = list._root;
+            LinkedList tmp = new LinkedList();
+            while (crnt != null)
+            {
+                tmp.AddLast(crnt.Value);
+                crnt = crnt.Next;
+            }
+            return tmp;
         }
 
         private static void SwapNodesValue(ref Node a, ref Node b)
