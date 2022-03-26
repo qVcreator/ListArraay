@@ -21,12 +21,6 @@ namespace LinkedList.Tests.LinkedListTestSources
             actuallist = new LinkedList(new int[] { -77 });
 
             yield return new object[] { actuallist, expected };
-
-
-            expected = new LinkedList(new int[] { });
-            actuallist = new LinkedList(new int[] { });
-
-            yield return new object[] { actuallist, expected };
         }
     }
 }

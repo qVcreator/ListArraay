@@ -74,14 +74,21 @@
 
         public LinkedList(int[] array)
         {
-            _root = new Node(array[0]);
-            Node crnt = _root;
-            for (int i = 1; i < array.Length; i++)
+            if (array.Length == 0)
             {
-                crnt.Next = new Node(array[i]);
-                crnt = crnt.Next;
-                if(i == array.Length - 1)
+                _root = null;
+
+                _tail = null;
+            }
+            else
+            {
+                _root = new Node(array[0]);
+                Node crnt = _root;
+                _tail = crnt;
+                for (int i = 1; i < array.Length; i++)
                 {
+                    crnt.Next = new Node(array[i]);
+                    crnt = crnt.Next;
                     _tail = crnt;
                 }
             }
@@ -130,11 +137,18 @@
             }
             else
             {
-                Node previousNode = GetNode(index - 1);
-                Node nextNode = GetNode(index);
-                Node newNode = new Node(value);
-                previousNode.Next = newNode;
-                newNode.Next = nextNode;
+                if (index == 0)
+                {
+                    AddFirst(value);
+                }
+                else
+                {
+                    Node previousNode = GetNode(index - 1);
+                    Node nextNode = GetNode(index);
+                    Node newNode = new Node(value);
+                    previousNode.Next = newNode;
+                    newNode.Next = nextNode;
+                }
             }
         }
 
@@ -144,9 +158,18 @@
             {
                 throw new Exception("List have nothing to delete");
             }
-            Node preLastNode = GetNode(Length-2);
-            preLastNode.Next = null;
-            _tail = preLastNode;
+            int tmp = Length;
+            if (tmp < 2)
+            {
+                _root = null;
+                _tail = null;
+            }
+            else
+            {
+                Node preLastNode = GetNode(Length - 2);
+                preLastNode.Next = null;
+                _tail = preLastNode;
+            }
         }
 
         public void DeleteFirst()
@@ -155,25 +178,32 @@
             {
                 throw new Exception("List have nothing to delete");
             }
-            _root.Next = GetNode(2);
+            _root = _root.Next;
         }
 
         public void DeleteByIndex(int index)
         {
-            if (index < 0 || index >= Length)
-            {
-                throw new IndexOutOfRangeException();
-            }
             if (_tail is null)
             {
                 throw new Exception("List have nothing to delete");
             }
-            Node prevNode = GetNode(index-1);
-            Node nextNode = GetNode(index+1);
-            prevNode.Next = nextNode;
-            if (index == Length - 1)
+            if (index < 0 || index >= Length)
             {
-                _tail = prevNode;
+                throw new IndexOutOfRangeException();
+            }
+            if (index == 0)
+            {
+                _root = _root.Next;
+            }
+            else
+            {
+                Node prevNode = GetNode(index - 1);
+                Node nextNode = GetNode(index + 1);
+                prevNode.Next = nextNode;
+                if (index == Length - 1)
+                {
+                    _tail = prevNode;
+                }
             }
             
         }
@@ -182,18 +212,28 @@
         {
             if(range < 0 || range > Length)
             {
-                throw new ArgumentOutOfRangeException("range");
+                throw new ArgumentException("range");
             }
-            Node lastStayNode = GetNode(Length - 1 - range);
-            lastStayNode.Next = null;
-            _tail = lastStayNode;
+            int len = Length;
+            if (len == range)
+            {
+                _root = null;
+                _tail = null;
+            }
+            else
+            {
+                Node lastStayNode = GetNode(len - 1 - range);
+                lastStayNode.Next = null;
+                _tail = lastStayNode;
+            }
+            
         }
 
         public void DeleteRangeOfFirst(int range)
         {
             if (range < 0 || range > Length)
             {
-                throw new ArgumentOutOfRangeException("range");
+                throw new ArgumentException("range");
             }
             Node lastStayNode = GetNode(range);
             _root = lastStayNode;
@@ -211,7 +251,7 @@
             }
             if (range < 0 || range > Length)
             {
-                throw new ArgumentOutOfRangeException("range");
+                throw new ArgumentException("range");
             }
             Node stop = GetNode(index - 1);
             Node keep = GetNode(index + range);
@@ -267,6 +307,10 @@
 
         public void Reverse()
         {
+            if (_tail is null)
+            {
+                throw new Exception();
+            }
             Node crnt = _root;
             Node next;
             while (crnt.Next != null)
@@ -478,6 +522,10 @@
             {
                 throw new ArgumentNullException("list");
             }
+            if (list._tail is null)
+            {
+                throw new ArgumentException("list");
+            }
             LinkedList tmp = CreateTmp(list);
             Node crnt = tmp._tail;
             Node newRoot = tmp._root;
@@ -494,6 +542,10 @@
             if (index < 0 || index > Length)
             {
                 throw new IndexOutOfRangeException("index");
+            }
+            if (list._tail is null)
+            {
+                throw new ArgumentException("list");
             }
             if (index > 0)
             {

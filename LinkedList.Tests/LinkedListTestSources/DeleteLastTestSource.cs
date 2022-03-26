@@ -23,6 +23,12 @@ namespace LinkedList.Tests.LinkedListTestSources
             yield return new object[] { actuallist, expected };
 
 
+            expected = new LinkedList(new int[] { 7});
+            actuallist = new LinkedList(new int[] { 7,2 });
+
+            yield return new object[] { actuallist, expected };
+
+
             expected = new LinkedList(new int[] { 1, 2, 3, 4 });
             actuallist = new LinkedList(new int[] { 1, 2, 3, 4, -7 });
 

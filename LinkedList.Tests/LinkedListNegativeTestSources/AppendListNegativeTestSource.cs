@@ -17,4 +17,15 @@ namespace LinkedList.Tests.LinkedListNegativeTestSources
             yield return new object[] { addedList, actuallist };
         }
     }
+
+    internal class NegativeTestSource_WhenListIsEmpty : IEnumerable
+    {
+        public IEnumerator GetEnumerator()
+        {
+            LinkedList actuallist = new LinkedList(new int[] { 1, 2, 3, 4, 5 });
+            LinkedList addedList = new LinkedList();
+
+            yield return new object[] { addedList, actuallist };
+        }
+    }
 }

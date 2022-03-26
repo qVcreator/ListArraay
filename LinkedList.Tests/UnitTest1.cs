@@ -87,11 +87,6 @@ namespace LinkedList.Test
             Assert.AreEqual(expected, actuallist);
         }
 
-        [TestCaseSource(typeof(DeleteRangeOfLastNegativeTestSource_WhenRnageGreaterThanLength))]
-        public void DeleteRangeOfLastTest_WhenIndexOutOfLength_ShouldThrowException(int rangeLength, LinkedList actuallist)
-        {
-            Assert.Throws<IndexOutOfRangeException>(() => actuallist.DeleteRangeOfLast(rangeLength));
-        }
 
         [TestCaseSource(typeof(DeleteRangeOfLastNegativeTestSource_WhenRnageLessThanZero))]
         public void DeleteRangeOfLastTest_WhenRnageLessThanZero_ShouldThrowException(int rangeLength, LinkedList actuallist)
@@ -106,11 +101,6 @@ namespace LinkedList.Test
             Assert.AreEqual(expected, actuallist);
         }
 
-        [TestCaseSource(typeof(DeleteRangeOfFirstNegativeTestSource_WhenRnageGreaterThanLength))]
-        public void DeleteRangeOfFirstTest_WhenIndexOutOfLength_ShouldThrowException(int rangeLength, LinkedList actuallist)
-        {
-            Assert.Throws<IndexOutOfRangeException>(() => actuallist.DeleteRangeOfFirst(rangeLength));
-        }
 
         [TestCaseSource(typeof(DeleteRangeOfFirstNegativeTestSource_WhenRnageLessThanZero))]
         public void DeleteRangeOfFirstTest_WhenRangeLessThanZero_ShouldThrowException(int rangeLength, LinkedList actuallist)
@@ -174,6 +164,12 @@ namespace LinkedList.Test
         {
             actualList.Reverse();
             Assert.AreEqual(expected, actualList);
+        }
+
+        [TestCaseSource(typeof(ReverseNegativeTestSource_WhenListsIsEmpty))]
+        public void ReverseTest_WhenListsIsEmpty(LinkedList actuallist)
+        {
+            Assert.Throws<Exception>(() => actuallist.Reverse());
         }
 
 
@@ -303,6 +299,12 @@ namespace LinkedList.Test
             Assert.Throws<ArgumentNullException>(() => actuallist.AddListToBegin(list));
         }
 
+        [TestCaseSource(typeof(NegativeTestSource_WhenListIsEmpty))]
+        public void AddListToBeginTest_WhenListIsEmpty(LinkedList list, LinkedList actuallist)
+        {
+            Assert.Throws<ArgumentException>(() => actuallist.AddListToBegin(list));
+        }
+
         [TestCaseSource(typeof(AddListByIndexTestSource))]
         public void AddListByIndexTest(int index, LinkedList list, LinkedList actualList, LinkedList expected)
         {
@@ -315,6 +317,12 @@ namespace LinkedList.Test
         public void AddListByIndexTest_WhenListIsNull(int index, LinkedList list, LinkedList actuallist)
         {
             Assert.Throws<IndexOutOfRangeException>(() => actuallist.AddListByIndex(index, list));
+        }
+
+        [TestCaseSource(typeof(AddListByIndexNegativeTestSource_WhenListIsEmpty))]
+        public void AddListByIndexTest_WhenListIsEmpty(int index, LinkedList list, LinkedList actuallist)
+        {
+            Assert.Throws<ArgumentException>(() => actuallist.AddListByIndex(index, list));
         }
     }
 }

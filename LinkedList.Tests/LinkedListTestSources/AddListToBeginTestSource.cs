@@ -11,16 +11,9 @@ namespace LinkedList.Tests.LinkedListTestSources
     {
         public IEnumerator GetEnumerator()
         {
-            LinkedList expected = new LinkedList(new int[] { 6, 5, 4, 3, 2, 1 });
-            LinkedList actuallist = new LinkedList(new int[] { 6, 5, 4, 3, 2, 1 });
-            LinkedList addedList = new LinkedList(new int[] { });
-
-            yield return new object[] { addedList, actuallist, expected };
-
-
-            expected = new LinkedList(new int[] { 1, 2, 3 , - 77, -2, 0, -400 });
-            actuallist = new LinkedList(new int[] { -77, -2, 0, -400 });
-            addedList = new LinkedList(new int[] { 1, 2, 3 });
+            LinkedList expected = new LinkedList(new int[] { 1, 2, 3 , - 77, -2, 0, -400 });
+            LinkedList actuallist = new LinkedList(new int[] { -77, -2, 0, -400 });
+            LinkedList addedList = new LinkedList(new int[] { 1, 2, 3 });
 
             yield return new object[] { addedList, actuallist, expected };
 

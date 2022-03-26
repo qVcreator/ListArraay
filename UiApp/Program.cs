@@ -12,7 +12,7 @@ LinkedList.LinkedList list = new LinkedList.LinkedList();
 //}
 for (int i = 0; i <= 10; i++)
 {
-    list.AddLast(i);
+    list.AddFirst(i);
 }
 
 //Console.WriteLine("go");
@@ -21,7 +21,7 @@ for (int i = 0; i <= 10; i++)
 //Console.WriteLine(list.ToString());
 //Console.WriteLine("end");
 
-
+list.AddByIndex(0, 77);
 //int[]  arr = new int[] { 2, 6, 43, 89, 34, 88 };
 //LinkedList.LinkedList list2 = new LinkedList.LinkedList(arr);
 
@@ -30,8 +30,8 @@ Console.WriteLine(list.ToString());
 //list.AddListByIndex(2,list2);
 //Console.WriteLine(list.ToString());
 
-list.DeleteRangeOfLast(9);
-Console.WriteLine(list.ToString()); 
+//list.DeleteRangeOfLast(9);
+//Console.WriteLine(list.ToString()); 
 
 
 
