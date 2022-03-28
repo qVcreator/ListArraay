@@ -490,6 +490,7 @@
                     {
                         _root = crnt.Next;
                         count++;
+                        index--;
                     }
                     else
                     {
