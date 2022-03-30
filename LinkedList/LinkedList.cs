@@ -416,16 +416,41 @@
         {            
             for (int i=0; i<Length-1; i++)
             {
+                
                 Node crnt = _root;
                 Node next = crnt.Next;
+                Node previous = _root;
+
+                int j = 0;
                 while (next != null)
                 {
-                    if (crnt.Value > next.Value)
+                    if (crnt == _root && crnt.Value > next.Value)
                     {
-                        SwapNodesValue(ref crnt, ref next);
+                        crnt.Next = next.Next;
+                        _root = next;
+                        next.Next = crnt;
+                        previous = next;
+                        j++;
                     }
-                    crnt = crnt.Next;
-                    next = next.Next;
+                    else if (crnt.Value > next.Value) 
+                    {
+                        crnt.Next = next.Next;
+                        previous.Next = next;
+                        next.Next = crnt;
+                        previous = next;
+                        j++;
+                    }
+                    else
+                    {
+                        crnt = crnt.Next;
+                        j++;
+                        if (j > 1)
+                        {
+                            previous = previous.Next;
+                        }
+                        
+                    }
+                    next = crnt.Next;
                 }
             }
         }
@@ -434,16 +459,41 @@
         {
             for (int i = 0; i < Length - 1; i++)
             {
+
                 Node crnt = _root;
                 Node next = crnt.Next;
+                Node previous = _root;
+
+                int j = 0;
                 while (next != null)
                 {
-                    if (crnt.Value < next.Value)
+                    if (crnt == _root && crnt.Value < next.Value)
                     {
-                        SwapNodesValue(ref crnt, ref next);
+                        crnt.Next = next.Next;
+                        _root = next;
+                        next.Next = crnt;
+                        previous = next;
+                        j++;
                     }
-                    crnt = crnt.Next;
-                    next = next.Next;
+                    else if (crnt.Value < next.Value)
+                    {
+                        crnt.Next = next.Next;
+                        previous.Next = next;
+                        next.Next = crnt;
+                        previous = next;
+                        j++;
+                    }
+                    else
+                    {
+                        crnt = crnt.Next;
+                        j++;
+                        if (j > 1)
+                        {
+                            previous = previous.Next;
+                        }
+
+                    }
+                    next = crnt.Next;
                 }
             }
         }
@@ -561,7 +611,7 @@
             {
                 LinkedList tmp = CreateTmp(list);
                 Node stop = GetNode(index - 1);
-                Node keep = GetNode(index);
+                Node keep = stop.Next;
                 stop.Next = tmp._root;
                 tmp._tail.Next = keep;
             }
