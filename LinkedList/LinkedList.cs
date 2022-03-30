@@ -144,7 +144,7 @@
                 else
                 {
                     Node previousNode = GetNode(index - 1);
-                    Node nextNode = GetNode(index);
+                    Node nextNode = previousNode.Next;
                     Node newNode = new Node(value);
                     previousNode.Next = newNode;
                     newNode.Next = nextNode;
@@ -198,9 +198,9 @@
             else
             {
                 Node prevNode = GetNode(index - 1);
-                Node nextNode = GetNode(index + 1);
+                Node nextNode = prevNode.Next.Next;
                 prevNode.Next = nextNode;
-                if (index == Length - 1)
+                if (index == Length)
                 {
                     _tail = prevNode;
                 }
@@ -247,14 +247,21 @@
             }
             if ((index + range) > Length)
             {
-                throw new ArgumentOutOfRangeException("rangeLength");
+                throw new ArgumentOutOfRangeException("range");
             }
             if (range < 0 || range > Length)
             {
                 throw new ArgumentException("range");
             }
+
             Node stop = GetNode(index - 1);
             Node keep = GetNode(index + range);
+
+            if (index + range == Length)
+            {
+                _tail = stop;
+            }
+
             if (index > 0)
             {
                 stop.Next = keep;
@@ -262,11 +269,6 @@
             else
             {
                 _root  = keep;
-            }            
-            
-            if (index+range  == Length)
-            {
-                _tail=stop;
             }
         }
 
@@ -366,10 +368,12 @@
             {
                 throw new Exception("You have nothing to find");
             }
+
             Node crnt = _root;
             int max = crnt.Value;
             int i = 0;
             int index = 0;
+
             while (crnt != null)
             {
                 if (crnt.Value > max)
@@ -389,10 +393,12 @@
             {
                 throw new Exception("You have nothing to find");
             }
+
             Node crnt = _root;
             int min = crnt.Value;
             int i = 0;
             int index = 0;
+
             while (crnt != null)
             {
                 if (crnt.Value < min)
@@ -479,9 +485,11 @@
             {
                 throw new Exception("You have nothing to find");
             }
+
             Node crnt = _root;
             int index=0;
             int count = 0;
+
             while (crnt != null)
             {
                 if (crnt.Value == value)
@@ -527,6 +535,7 @@
             {
                 throw new ArgumentException("list");
             }
+
             LinkedList tmp = CreateTmp(list);
             Node crnt = tmp._tail;
             Node newRoot = tmp._root;

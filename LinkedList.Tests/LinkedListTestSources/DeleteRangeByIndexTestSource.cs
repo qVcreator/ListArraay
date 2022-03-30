@@ -33,6 +33,13 @@ namespace LinkedList.Tests.LinkedListTestSources
             index = 0;
 
             yield return new object[] { actuallist, expected, range, index };
+
+            expected = new LinkedList(new int[] { 1, 2, 3 });
+            actuallist = new LinkedList(new int[] { 1, 2, 3, 4, 5, 6 });
+            range = 3;
+            index = 3;
+
+            yield return new object[] { actuallist, expected, range, index };
         }
     }
 }
