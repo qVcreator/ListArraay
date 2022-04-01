@@ -322,6 +322,7 @@
                 next.Next = _root;
                 _root = next;
             }
+            _tail = crnt;
         }
 
         public int FindMax()
