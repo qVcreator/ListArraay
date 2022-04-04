@@ -572,8 +572,9 @@
             {
                 throw new ArgumentNullException("list");
             }
-            _tail.Next = list._root;
-            _tail = list._tail;
+            LinkedList tmp = CreateTmp(list);
+            _tail.Next = tmp._root;
+            _tail = tmp._tail;
         }
 
         public void AddListToBegin(LinkedList list)
